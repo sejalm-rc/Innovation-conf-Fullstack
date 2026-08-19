@@ -1,0 +1,42 @@
+export const proceedings = [
+  {
+    id: "icp",
+    title: "Innovation Conference Proceedings (ICP)",
+    subtitle: "Multidisciplinary Sciences & Engineering",
+    publisher: "CRC Press (Taylor & Francis Group)",
+    indexedIn: "Scopus",
+    issn: "2630-6389",
+  },
+  {
+    id: "its-p",
+    title: "Innovation in Technology and Science Proceedings (ITS-P)",
+    subtitle: "Technology & Applied Sciences",
+    publisher: "AIP Publishing",
+    indexedIn: "Scopus",
+    issn: "2473-0531",
+  },
+  {
+    id: "assep",
+    title: "Advances in Social Sciences & Education (ASSEP)",
+    subtitle: "Social Sciences & Education",
+    publisher: "European Proceedings (EP International)",
+    indexedIn: "Scopus",
+    issn: "2672-815X",
+  },
+  {
+    id: "ihlsp",
+    title: "Innovation in Health and Life Sciences Proceedings (IHLSP)",
+    subtitle: "Health, Medicine & Life Sciences",
+    publisher: "EDP Sciences",
+    indexedIn: "Scopus",
+    issn: "2672-8964",
+  },
+  {
+    id: "setp",
+    title: "Sustainable Engineering and Technology Proceedings (SETP)",
+    subtitle: "Sustainable Engineering & Technology",
+    publisher: "Springer Nature (Part of Springer)",
+    indexedIn: "Scopus",
+    issn: "2662-8081",
+  },
+];
