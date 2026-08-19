@@ -10,7 +10,7 @@ if (!RAW_API_BASE_URL) {
 }
 
 export const API_BASE_URL = RAW_API_BASE_URL || "http://localhost:5000/api";
-export const SERVER_URL = RAW_SERVER_URL || "https://innovation-conference-api.onrender.com/";
+export const SERVER_URL = RAW_SERVER_URL || "https://innovation-conference-api.onrender.com";
 
 /**
  * Resolves an uploaded file's stored relative path (e.g. "/uploads/conferences/x.jpg")
