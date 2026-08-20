@@ -201,12 +201,12 @@ export default function Contact() {
 
       {/* ==================== CONTACT CARDS ==================== */}
       <section className="px-3 py-6 sm:px-4 lg:px-4">
-        <div className="mx-auto grid max-w-[1320px] grid-cols-1 gap-4 px-6 min-[470px]:grid-cols-2 sm:px-10 lg:grid-cols-4 lg:px-16">
+        <div className="mx-auto grid max-w-[1320px] grid-cols-1 gap-2 px-6 min-[470px]:grid-cols-2 sm:px-10 lg:grid-cols-4 lg:px-10">
           {contactCards.map(({ icon: Icon, title, text, href }, index) => {
-            const content = <><div className="grid h-12 w-12 place-items-center rounded-full bg-[#eef7ec] text-[#459d3b] transition group-hover:bg-[#459d3b] group-hover:text-white"><Icon size={23} /></div><div><h2 className="text-[14px] font-[550] text-[#082f63]">{title}</h2><p className="mt-1 break-words text-[12px] leading-[1.5] text-[#3c5068] sm:text-[13px]">{text}</p></div></>;
+            const content = <><div className="grid h-10 w-10 place-items-center rounded-full bg-[#eef7ec] text-[#459d3b] transition group-hover:bg-[#459d3b] group-hover:text-white"><Icon size={20} /></div><div><h2 className="text-[14px] font-[550] text-[#082f63]">{title}</h2><p className="mt-1 break-words text-[12px] leading-[1.5] text-[#3c5068] sm:text-[13px]">{text}</p></div></>;
             return (
               <motion.article key={title} {...reveal} transition={{ duration: 0.4, delay: index * 0.06 }} whileHover={{ y: -5 }} className="group rounded-xl border border-[#d9e3ea] bg-white shadow-[0_5px_18px_rgba(8,47,99,.05)]">
-                {href ? <a href={href} className="flex min-h-[112px] items-center gap-4 px-5 py-4">{content}</a> : <div className="flex min-h-[112px] items-center gap-4 px-5 py-4">{content}</div>}
+                {href ? <a href={href} className="flex min-h-[112px] items-center gap-4 px-2 py-4">{content}</a> : <div className="flex min-h-[112px] items-center gap-4 px-5 py-4">{content}</div>}
               </motion.article>
             );
           })}
@@ -215,7 +215,7 @@ export default function Contact() {
 
       {/* ==================== FORM AND CONTACT DETAILS ==================== */}
       <section className="px-3 pb-9 sm:px-5 lg:px-6">
-        <div className="mx-auto grid max-w-[1320px] gap-6 px-6 sm:px-10 lg:grid-cols-[1.45fr_.8fr] lg:px-16">
+        <div className="mx-auto grid max-w-[1320px] gap-6 px-6 sm:px-10 lg:grid-cols-[1.45fr_.8fr] lg:px-10">
           <motion.div {...reveal} className="rounded-xl border border-[#d8e2e9] bg-[#fafcfb] p-5 sm:p-7">
             <h2 className="text-[20px] font-[550] text-[#348a32]">Send Us a Message</h2>
             <p className="mt-1 text-[12px] text-[#42566d] sm:text-[13px]">Complete the form and our support team will contact you shortly.</p>
@@ -269,7 +269,7 @@ export default function Contact() {
 
       {/* ==================== MAP ==================== */}
       <section className="px-3 pb-9 sm:px-5 lg:px-6">
-        <motion.div {...reveal} className="mx-auto max-w-[1320px] px-6 sm:px-10 lg:px-16">
+        <motion.div {...reveal} className="mx-auto max-w-[1320px] px-6 sm:px-10 lg:px-10">
           <div className="grid overflow-hidden rounded-xl border border-[#d7e1e8] bg-white lg:grid-cols-[.65fr_1.35fr]">
             <div className="flex flex-col justify-center p-6 sm:p-8"><MapPin size={34} className="text-[#459d3b]" /><h2 className="mt-3 text-[20px] font-[550] text-[#082f63]">Our Global Presence</h2><span className="mt-2 h-[2px] w-9 bg-[#459d3b]" /><p className="mt-4 text-[12px] leading-[1.75] text-[#42566d] sm:text-[13px]">Innovation Conferences works with researchers, academic institutions and publication partners across the world.</p><div className="mt-5 flex items-center gap-3 text-[12px] font-[550] text-[#348a32]"><Users2 size={18} /> Global academic community</div></div>
             <iframe title="Innovation Conferences location" src="https://www.google.com/maps?q=Nagpur%2C%20Maharashtra%2C%20India&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="h-[300px] w-full border-0 sm:h-[350px] lg:h-full lg:min-h-[360px]" />
@@ -278,16 +278,79 @@ export default function Contact() {
       </section>
 
       {/* ==================== FAQ ==================== */}
-      <section className="px-3 pb-10 sm:px-5 lg:px-6">
-        <div className="mx-auto max-w-[1320px] px-6 sm:px-10 lg:px-16">
-          <motion.div {...reveal} className="text-center"><h2 className="text-[20px] font-[550] text-[#082f63] sm:text-[22px]">Frequently Asked Questions</h2><span className="mx-auto mt-2 block h-[2px] w-9 bg-[#459d3b]" /></motion.div>
-          <div className="mx-auto mt-6 max-w-[900px] space-y-3">{faqs.map((item, index) => <motion.div key={item.question} {...reveal} transition={{ duration: 0.35, delay: index * 0.04 }} className="overflow-hidden rounded-lg border border-[#d8e2e9] bg-white"><button type="button" onClick={() => setOpenFaq(openFaq === index ? -1 : index)} aria-expanded={openFaq === index} className="flex w-full items-center justify-between gap-5 px-5 py-4 text-left text-[12px] font-[600] text-[#082f63]"><span>{item.question}</span><ChevronDown size={18} className={`shrink-0 text-[#459d3b] transition-transform ${openFaq === index ? "rotate-180" : ""}`} /></button>{openFaq === index && <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="border-t border-[#e4ebf0] px-5 py-4 text-[12px] leading-[1.7] text-[#42566d]">{item.answer}</motion.p>}</motion.div>)}</div>
-        </div>
-      </section>
+   <section className="px-3 pb-9 sm:px-5 lg:px-6">
+  <div className="max-w-[1320px] px-6 mx-auto sm:px-10 lg:px-10">
+
+    {/* Section Heading */}
+    <motion.div {...reveal} className="text-center">
+      <h2 className="text-[20px] font-[550] text-[#082f63] sm:text-[22px]">
+        Frequently Asked Questions
+      </h2>
+
+      <span className="mx-auto mt-2 block h-[2px] w-9 bg-[#459d3b]" />
+    </motion.div>
+
+    {/* FAQ Grid */}
+    <div className="mx-auto mt-7 grid max-w-[1320px] grid-cols-1 items-start gap-4 md:grid-cols-2">
+      {faqs.map((item, index) => {
+        const isOpen = openFaq === index;
+
+        return (
+          <motion.div
+            key={item.question}
+            {...reveal}
+            transition={{
+              duration: 0.35,
+              delay: index * 0.04,
+            }}
+            className="w-full overflow-hidden rounded-lg border border-[#d8e2e9] bg-white"
+          >
+            {/* Question */}
+            <button
+              type="button"
+              onClick={() => setOpenFaq(isOpen ? -1 : index)}
+              aria-expanded={isOpen}
+              className="flex min-h-[58px] w-full items-center justify-between gap-4 px-5 py-4 text-left text-[12px] font-[600] leading-[1.5] text-[#082f63] sm:text-[13px]"
+            >
+              <span className="pr-2">
+                {item.question}
+              </span>
+
+              <ChevronDown
+                size={18}
+                className={`shrink-0 text-[#459d3b] transition-transform duration-300 ${
+                  isOpen ? "rotate-180" : "rotate-0"
+                }`}
+              />
+            </button>
+
+            {/* Answer */}
+            <motion.div
+              initial={false}
+              animate={{
+                height: isOpen ? "auto" : 0,
+                opacity: isOpen ? 1 : 0,
+              }}
+              transition={{
+                duration: 0.3,
+                ease: "easeInOut",
+              }}
+              className="overflow-hidden"
+            >
+              <div className="border-t border-[#e4ebf0] px-5 py-4 text-[12px] leading-[1.7] text-[#42566d] sm:text-[13px]">
+                {item.answer}
+              </div>
+            </motion.div>
+          </motion.div>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
       {/* ==================== CTA ==================== */}
-      <section className="px-3 pb-5 sm:px-5 lg:px-6">
-        <motion.div {...reveal} className="relative mx-auto max-w-[1440px] overflow-hidden rounded-xl bg-[#063665] text-white">
+      <section className="px-3 pb-5 sm:px-5 lg:px-16">
+        <motion.div {...reveal} className="relative mx-auto max-w-[1320px] overflow-hidden rounded-xl bg-[#063665] text-white">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_92%_100%,rgba(57,167,102,.50),transparent_30%),linear-gradient(110deg,#06305f,#004776)]" />
             <div className="relative z-10 mx-auto flex min-h-[112px] max-w-[1320px] flex-col items-center gap-5 px-6 py-6 text-center sm:px-10 md:flex-row md:text-left lg:px-16">
                 <div className="grid h-16 w-16 shrink-0 place-items-center rounded-full border border-white/25 bg-white/10">
