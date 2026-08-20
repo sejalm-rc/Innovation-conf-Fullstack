@@ -278,8 +278,8 @@ export default function Contact() {
       </section>
 
       {/* ==================== FAQ ==================== */}
-   <section className="pb-10">
-  <div className="max-w-[1520px] px-1 mx-auto">
+   <section className="px-3 pb-9 sm:px-5 lg:px-6">
+  <div className="max-w-[1320px] px-6 mx-auto sm:px-10 lg:px-10">
 
     {/* Section Heading */}
     <motion.div {...reveal} className="text-center">
@@ -291,7 +291,7 @@ export default function Contact() {
     </motion.div>
 
     {/* FAQ Grid */}
-    <div className="mx-auto mt-7 grid max-w-[1000px] grid-cols-1 items-start gap-4 md:grid-cols-2">
+    <div className="mx-auto mt-7 grid max-w-[1320px] grid-cols-1 items-start gap-4 md:grid-cols-2">
       {faqs.map((item, index) => {
         const isOpen = openFaq === index;
 
@@ -349,7 +349,7 @@ export default function Contact() {
 </section>
 
       {/* ==================== CTA ==================== */}
-      <section className="px-3 pb-5 sm:px-5 lg:px-10">
+      <section className="px-3 pb-5 sm:px-5 lg:px-16">
         <motion.div {...reveal} className="relative mx-auto max-w-[1320px] overflow-hidden rounded-xl bg-[#063665] text-white">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_92%_100%,rgba(57,167,102,.50),transparent_30%),linear-gradient(110deg,#06305f,#004776)]" />
             <div className="relative z-10 mx-auto flex min-h-[112px] max-w-[1320px] flex-col items-center gap-5 px-6 py-6 text-center sm:px-10 md:flex-row md:text-left lg:px-16">
