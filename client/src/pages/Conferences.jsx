@@ -16,9 +16,16 @@ import {
 
 import confBg from "../assets/img/confBg.png";
 import ConferenceCard from "../components/ConferenceCard";
-import { LoadingGrid, EmptyState, ErrorState } from "../components/StatusStates";
+import {
+  LoadingGrid,
+  EmptyState,
+  ErrorState,
+} from "../components/StatusStates";
 import { useFetch } from "../hooks/useFetch";
-import { fetchUpcomingConferences, fetchPreviousConferences } from "../services/conferenceService";
+import {
+  fetchUpcomingConferences,
+  fetchPreviousConferences,
+} from "../services/conferenceService";
 
 const stats = [
   { icon: CalendarDays, value: "50+", label: "Upcoming Conferences" },
@@ -60,15 +67,23 @@ function ConferenceRow({ title, children, status, onRetry, emptyMessage }) {
   };
 
   return (
-    <motion.section {...reveal} transition={{ duration: 0.5 }} className="mb-8 sm:mb-10">
+    <motion.section
+      {...reveal}
+      transition={{ duration: 0.5 }}
+      className="mb-8 sm:mb-10"
+    >
       <div className="mb-4 flex items-end justify-between gap-4">
         <div>
-          <h2 className="text-[19px] font-[550] text-[#082b5c] sm:text-[22px]">{title}</h2>
+          <h2 className="text-[19px] font-[550] text-[#082b5c] sm:text-[22px]">
+            {title}
+          </h2>
           <span className="mt-1.5 block h-[2px] w-9 bg-[#55a63c]" />
         </div>
       </div>
 
-      {status === "loading" && <LoadingGrid count={4} className="sm:grid-cols-2 lg:grid-cols-4" />}
+      {status === "loading" && (
+        <LoadingGrid count={4} className="sm:grid-cols-2 lg:grid-cols-4" />
+      )}
 
       {status === "error" && (
         <ErrorState
@@ -78,7 +93,12 @@ function ConferenceRow({ title, children, status, onRetry, emptyMessage }) {
         />
       )}
 
-      {status === "success" && !children && <EmptyState title={`No ${title.toLowerCase()} yet`} message={emptyMessage} />}
+      {status === "success" && !children && (
+        <EmptyState
+          title={`No ${title.toLowerCase()} yet`}
+          message={emptyMessage}
+        />
+      )}
 
       {status === "success" && children && (
         <div className="relative">
@@ -86,7 +106,7 @@ function ConferenceRow({ title, children, status, onRetry, emptyMessage }) {
             type="button"
             onClick={() => scroll(-1)}
             aria-label={`Scroll ${title} left`}
-            className="absolute left-1 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-[#082f63] text-white shadow-[0_5px_14px_rgba(8,47,99,.25)] transition duration-300 hover:scale-110 hover:bg-[#4b9d34] sm:-left-4 lg:-left-9"
+            className="absolute left-0 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-[#082f63] text-white shadow-[0_5px_14px_rgba(8,47,99,.25)] transition duration-300 hover:scale-110 hover:bg-[#4b9d34]"
           >
             <ChevronLeft size={18} />
           </button>
@@ -102,7 +122,7 @@ function ConferenceRow({ title, children, status, onRetry, emptyMessage }) {
             type="button"
             onClick={() => scroll(1)}
             aria-label={`Scroll ${title} right`}
-            className="absolute right-1 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-[#082f63] text-white shadow-[0_5px_14px_rgba(8,47,99,.25)] transition duration-300 hover:scale-110 hover:bg-[#4b9d34] sm:-right-4 lg:-right-9"
+            className="absolute right-0 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-[#082f63] text-white shadow-[0_5px_14px_rgba(8,47,99,.25)] transition duration-300 hover:scale-110 hover:bg-[#4b9d34]"
           >
             <ChevronRight size={18} />
           </button>
@@ -114,13 +134,14 @@ function ConferenceRow({ title, children, status, onRetry, emptyMessage }) {
 
 export default function Conferences() {
   useEffect(() => {
-    document.title = "Conferences | Scopus Indexed Conferences | Innovation Conference";
+    document.title =
+      "Conferences | Scopus Indexed Conferences | Innovation Conference";
 
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
       meta.setAttribute(
         "content",
-        "Explore upcoming and past Scopus indexed conferences hosted by Innovation Conferences across engineering, science, health, business and social sciences."
+        "Explore upcoming and past Scopus indexed conferences hosted by Innovation Conferences across engineering, science, health, business and social sciences.",
       );
     }
   }, []);
@@ -166,13 +187,16 @@ export default function Conferences() {
             >
               <h1 className="text-[28px] font-[600] leading-[1.15] tracking-[-0.02em] text-white min-[400px]:text-[32px] sm:text-[29px] lg:text-[29px]">
                 Explore High Quality,
-                <span className="mt-1 block text-[#7eb43c]">Scopus Indexed Conferences</span>
+                <span className="mt-1 block text-[#7eb43c]">
+                  Scopus Indexed Conferences
+                </span>
               </h1>
 
               <p className="mt-5 max-w-[520px] text-[12px] leading-[1.75] text-white/95 min-[400px]:text-[12px] sm:text-[13px]">
-                Innovation Conferences hosts and supports only pre-evaluated, high quality conferences with
-                tie-ups to Scopus indexed proceedings and journals, ensuring visibility, credibility and real
-                impact for your research.
+                Innovation Conferences hosts and supports only pre-evaluated,
+                high quality conferences with tie-ups to Scopus indexed
+                proceedings and journals, ensuring visibility, credibility and
+                real impact for your research.
               </p>
             </motion.div>
           </div>
@@ -190,18 +214,28 @@ export default function Conferences() {
                 transition={{ duration: 0.4, delay: index * 0.06 }}
                 whileHover={{ y: -4 }}
                 className={`flex min-h-[88px] items-center gap-4 border-b border-[#dbe3e8] px-10 py-4 min-[430px]:border-r lg:min-h-[75px] lg:border-b-0 lg:px-7 ${
-                  index === 1 || index === 3 ? "min-[430px]:border-r-0 lg:border-r" : ""
+                  index === 1 || index === 3
+                    ? "min-[430px]:border-r-0 lg:border-r"
+                    : ""
                 } ${index >= 3 ? "min-[430px]:border-b-0" : ""} ${
                   index === stats.length - 1
                     ? "border-b-0 min-[430px]:col-span-2 min-[430px]:justify-center min-[430px]:border-r-0 lg:col-span-1 lg:justify-start"
                     : ""
                 }`}
               >
-                <Icon size={45} strokeWidth={1.35} className="shrink-0 text-[#4a9c36]" />
+                <Icon
+                  size={45}
+                  strokeWidth={1.35}
+                  className="shrink-0 text-[#4a9c36]"
+                />
 
                 <div>
-                  <p className="text-[21px] font-[550] leading-tight text-[#082b5c]">{value}</p>
-                  <p className="mt-1 max-w-[135px] text-[12px] leading-[1.35] text-[#243b5b]">{label}</p>
+                  <p className="text-[21px] font-[550] leading-tight text-[#082b5c]">
+                    {value}
+                  </p>
+                  <p className="mt-1 max-w-[135px] text-[12px] leading-[1.35] text-[#243b5b]">
+                    {label}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -264,7 +298,9 @@ export default function Conferences() {
             transition={{ duration: 0.55 }}
             className="overflow-hidden rounded-[16px] bg-gradient-to-r from-[#07396f] to-[#00335f] px-4 py-4 text-white shadow-[0_9px_25px_rgba(2,37,76,.18)] sm:px-8"
           >
-            <h2 className="text-center text-[18px] font-[550] sm:text-[20px]">Why Submit to Our Conferences?</h2>
+            <h2 className="text-center text-[18px] font-[550] sm:text-[20px]">
+              Why Submit to Our Conferences?
+            </h2>
             <span className="mx-auto mt-1 block h-[2px] w-10 bg-[#7fb534]" />
 
             <div className="mt-6 grid grid-cols-2 gap-y-9 sm:grid-cols-3 lg:grid-cols-6 lg:gap-0">
@@ -282,7 +318,9 @@ export default function Conferences() {
                     strokeWidth={1.35}
                     className="mb-3 text-[#7fb534] transition-transform duration-300 hover:scale-110"
                   />
-                  <p className="max-w-[135px] text-[11.5px] font-medium leading-[1.45] text-white">{label}</p>
+                  <p className="max-w-[135px] text-[11.5px] font-medium leading-[1.45] text-white">
+                    {label}
+                  </p>
                 </motion.div>
               ))}
             </div>
