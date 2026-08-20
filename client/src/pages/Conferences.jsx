@@ -274,18 +274,18 @@ export default function Conferences() {
             emptyMessage="Previous conferences will be listed here once completed."
           >
             {previousConferences.length > 0
-              ? previousConferences.map((conference, index) => (
-                  <motion.div
-                    data-conference-slide
-                    key={conference._id}
-                    whileHover={{ y: -6 }}
-                    transition={{ duration: 0.25 }}
-                    className="min-w-[calc(100%-12px)] snap-start min-[520px]:min-w-[calc(50%-10px)] lg:min-w-[calc(33.333%-14px)] xl:min-w-[calc(25%-15px)]"
-                  >
-                    <ConferenceCard conference={conference} index={index} />
-                  </motion.div>
-                ))
-              : null}
+  ? previousConferences.map((conference, index) => (
+      <motion.div
+        data-conference-slide
+        key={conference._id}
+        whileHover={{ y: -6 }}
+        transition={{ duration: 0.25 }}
+        className="min-w-[calc(100%_-_12px)] snap-start min-[520px]:min-w-[calc(50%_-_10px)] lg:min-w-[calc(25%_-_15px)]"
+      >
+        <ConferenceCard conference={conference} index={index} />
+      </motion.div>
+    ))
+  : null}
           </ConferenceRow>
         </div>
       </section>
