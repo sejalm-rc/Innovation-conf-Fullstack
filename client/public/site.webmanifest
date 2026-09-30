@@ -1,0 +1,15 @@
+{
+  "name": "Innovation Conferences",
+  "short_name": "InnovationConf",
+  "description": "Academic conferences, research collaboration and publication information.",
+  "lang": "en",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "theme_color": "#0b2545",
+  "background_color": "#ffffff",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
