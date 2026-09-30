@@ -19,7 +19,7 @@ import {
   Sprout,
   Users,
 } from "lucide-react";
-import homeBg from "../assets/img/homeBg.png";
+import homeBg from "../assets/img/home.png";
 import goal from "../assets/img/goal.png";
 import { fetchUpcomingConferences } from "../services/conferenceService";
 import { resolveUploadUrl } from "../services/api";
@@ -272,16 +272,16 @@ export default function Home() {
         className="
     relative
     mx-auto
-    min-h-[680px]
+    min-h-[500px]
     w-full
     max-w-[1848px]
     overflow-hidden
     bg-white
 
-    sm:min-h-[620px]
+    sm:min-h-[510px]
 
-    lg:aspect-[1848/851]
-    lg:min-h-0
+    
+    lg:min-h-[510px]
   "
       >
         {/* Complete background image — no desktop cropping */}
@@ -316,8 +316,8 @@ export default function Home() {
       bg-gradient-to-r
       from-white
       via-white/95
-      to-white/25
-      sm:via-white/85
+      to-white/20
+      sm:via-white/95
       lg:hidden
     "
         />
@@ -332,10 +332,10 @@ export default function Home() {
       max-w-[1170px]
       px-5
       pb-14
-      pt-12
+      pt-6
 
       sm:px-8
-      sm:pt-14
+      sm:pt-10
 
       lg:px-10
       lg:pb-10
@@ -459,7 +459,7 @@ export default function Home() {
               </Link>
 
               <Link
-                to="/journals-proceedings"
+                to="/about"
                 className="
             flex
             min-h-[48px]
@@ -481,7 +481,7 @@ export default function Home() {
           "
               >
                 <BookOpen size={18} />
-                Browse Journals &amp; Proceedings
+                About Innovation Conference 
               </Link>
             </div>
           </motion.div>
