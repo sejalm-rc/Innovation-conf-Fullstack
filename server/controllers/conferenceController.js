@@ -2,7 +2,18 @@ const mongoose = require("mongoose");
 const Conference = require("../models/Conference");
 const asyncHandler = require("../utils/asyncHandler");
 const { sendSuccess, sendError } = require("../utils/apiResponse");
-const { removeLocalFile } = require("../middleware/upload");
+const {
+  saveConferenceCover,
+  removeConferenceCover,
+} = require("../middleware/upload");
+
+async function cleanupCover(url) {
+  try {
+    await removeConferenceCover(url);
+  } catch (error) {
+    console.warn("[uploads] Cover cleanup failed:", error.message);
+  }
+}
 
 function buildImageUrl(req, filename) {
   if (!filename) return "";
@@ -151,16 +162,27 @@ function buildPayload(req) {
     payload.statusOverride = false;
   }
 
-  if (req.file) {
-    payload.coverImage = `/uploads/conferences/${req.file.filename}`;
-  }
-
   return payload;
 }
 
 const adminCreateConference = asyncHandler(async (req, res) => {
   const payload = buildPayload(req);
-  const conference = await Conference.create(payload);
+  let newCover = "";
+
+  if (req.file) {
+    newCover = await saveConferenceCover(req.file);
+    payload.coverImage = newCover;
+  }
+
+  let conference;
+
+  try {
+    conference = await Conference.create(payload);
+  } catch (error) {
+    if (newCover) await cleanupCover(newCover);
+    throw error;
+  }
+
   return sendSuccess(res, {
     statusCode: 201,
     message: "Conference created successfully",
@@ -170,28 +192,63 @@ const adminCreateConference = asyncHandler(async (req, res) => {
 
 const adminUpdateConference = asyncHandler(async (req, res) => {
   const existing = await Conference.findById(req.params.id);
-  if (!existing) return sendError(res, { statusCode: 404, message: "Conference not found" });
+
+  if (!existing) {
+    return sendError(res, {
+      statusCode: 404,
+      message: "Conference not found",
+    });
+  }
 
   const payload = buildPayload(req);
+  const oldCover = existing.coverImage;
+  let newCover = "";
 
-  if (req.file && existing.coverImage) {
-    removeLocalFile(existing.coverImage);
+  if (req.file) {
+    newCover = await saveConferenceCover(req.file);
+    payload.coverImage = newCover;
   }
 
   Object.assign(existing, payload);
-  await existing.save();
 
-  return sendSuccess(res, { message: "Conference updated successfully", data: existing });
+  try {
+    await existing.save();
+  } catch (error) {
+    if (newCover) await cleanupCover(newCover);
+    throw error;
+  }
+
+  // Delete the old image only after the database save succeeds.
+  if (newCover && oldCover && newCover !== oldCover) {
+    await cleanupCover(oldCover);
+  }
+
+  return sendSuccess(res, {
+    message: "Conference updated successfully",
+    data: existing,
+  });
 });
 
 const adminDeleteConference = asyncHandler(async (req, res) => {
   const conference = await Conference.findById(req.params.id);
-  if (!conference) return sendError(res, { statusCode: 404, message: "Conference not found" });
 
-  if (conference.coverImage) removeLocalFile(conference.coverImage);
+  if (!conference) {
+    return sendError(res, {
+      statusCode: 404,
+      message: "Conference not found",
+    });
+  }
+
+  const cover = conference.coverImage;
+
   await conference.deleteOne();
 
-  return sendSuccess(res, { message: "Conference deleted successfully", data: { id: req.params.id } });
+  if (cover) await cleanupCover(cover);
+
+  return sendSuccess(res, {
+    message: "Conference deleted successfully",
+    data: { id: req.params.id },
+  });
 });
 
 module.exports = {
