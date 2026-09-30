@@ -125,7 +125,7 @@ if (process.env.NODE_ENV !== "production") {
 // Rate limiting
 app.use("/api", apiLimiter);
 
-// Serve uploaded files
+// Serve uploaded filesj
 app.use(
   "/uploads",
   express.static(path.join(__dirname, "uploads"))
