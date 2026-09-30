@@ -14,7 +14,7 @@ import {
   ShieldCheck,
   Users2,
 } from "lucide-react";
-import contactBg from "../assets/img/network-bg.jpg";
+import contactBg from "../assets/img/global-research-network-background.webp";
 import { submitContactEnquiry } from "../services/contactService";
 import { ApiError } from "../services/api";
 

@@ -19,8 +19,8 @@ import {
   Sprout,
   Users,
 } from "lucide-react";
-import homeBg from "../assets/img/homeBg.png";
-import goal from "../assets/img/goal.png";
+import homeBg from "../assets/img/innovation-conference-home-hero_converted.webp";
+// import goal from "../assets/img/goal.png";
 import { fetchUpcomingConferences } from "../services/conferenceService";
 import { resolveUploadUrl } from "../services/api";
 import { useFetch } from "../hooks/useFetch";
@@ -29,27 +29,27 @@ import {
   EmptyState,
   ErrorState,
 } from "../components/StatusStates";
-import fallbackCover from "../assets/img/j1.png";
+import fallbackCover from "../assets/img/conference-indore-cover.webp";
 
-import sdg1 from "../assets/img/sd1.png";
-import sdg2 from "../assets/img/sd2.png";
-import sdg3 from "../assets/img/sd3.png";
-import sdg4 from "../assets/img/sd4.png";
-import sdg5 from "../assets/img/sd5.png";
-import sdg6 from "../assets/img/sd6.png";
-import sdg7 from "../assets/img/sd7.png";
-import sdg8 from "../assets/img/sd8.png";
-import sdg9 from "../assets/img/sd9.png";
-import sdg10 from "../assets/img/sd10.png";
-import sdg11 from "../assets/img/sd11.png";
-import sdg12 from "../assets/img/sd12.png";
-import sdg13 from "../assets/img/sd13.png";
-import sdg14 from "../assets/img/sd14.png";
-import sdg15 from "../assets/img/sd15.png";
-import sdg16 from "../assets/img/sd16.png";
-import sdg17 from "../assets/img/sd17.png";
-import sdgLogo from "../assets/img/sd18.png";
-import networkBg from "../assets/img/network-bg.jpg";
+import sdg1 from "../assets/img/sdg-01-no-poverty.webp";
+import sdg2 from "../assets/img/sdg-02-zero-hunger.webp";
+import sdg3 from "../assets/img/sdg-03-good-health-well-being.webp";
+import sdg4 from "../assets/img/sdg-04-quality-education.webp";
+import sdg5 from "../assets/img/sdg-05-gender-equality.webp";
+import sdg6 from "../assets/img/sdg-06-clean-water-sanitation.webp";
+import sdg7 from "../assets/img/sdg-07-affordable-clean-energy.webp";
+import sdg8 from "../assets/img/sdg-08-decent-work-economic-growth.webp";
+import sdg9 from "../assets/img/sdg-09-industry-innovation-infrastructure_converted.webp";
+import sdg10 from "../assets/img/sdg-10-reduced-inequalities.webp";
+import sdg11 from "../assets/img/sd11.webp";
+import sdg12 from "../assets/img/sd12.webp";
+import sdg13 from "../assets/img/sdg-13-climate-action.webp";
+import sdg14 from "../assets/img/sdg-14-life-below-water.webp";
+import sdg15 from "../assets/img/sd15.webp";
+import sdg16 from "../assets/img/sd16.webp";
+import sdg17 from "../assets/img/sdg-17-partnerships-for-goals.webp";
+import sdgLogo from "../assets/img/un-sustainable-development-goals-logo.webp";
+import networkBg from "../assets/img/global-research-network-background.webp";
 
 const trust = [
   [ShieldCheck, "Scopus Indexed", "Conferences & Proceedings"],

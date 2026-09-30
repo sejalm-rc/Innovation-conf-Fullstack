@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import { resolveUploadUrl } from "../services/api";
-import fallbackCover from "../assets/img/j1.png";
+import fallbackCover from "../assets/img/conference-indore-cover.webp";
 
 export default function ConferenceCard({ conference, index = 0 }) {
   const { slug, _id, coverImage, dateLabel, mode, city, country, acronym, title, status } = conference;

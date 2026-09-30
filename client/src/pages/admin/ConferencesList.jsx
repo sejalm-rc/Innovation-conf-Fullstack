@@ -8,7 +8,7 @@ import { LoadingGrid, EmptyState, ErrorState } from "../../components/StatusStat
 import ConfirmDialog from "../../components/admin/ConfirmDialog";
 import Pagination from "../../components/admin/Pagination";
 import StatusBadge from "../../components/admin/StatusBadge";
-import fallbackCover from "../../assets/img/j1.png";
+import fallbackCover from "../../assets/img/conference-indore-cover.webp";
 
 export default function ConferencesList() {
   const [search, setSearch] = useState("");

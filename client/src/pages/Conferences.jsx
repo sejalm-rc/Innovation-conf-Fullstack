@@ -14,7 +14,7 @@ import {
   Users2,
 } from "lucide-react";
 
-import confBg from "../assets/img/confBg.png";
+import confBg from "../assets/img/scopus-indexed-conferences-hero.webp";
 import ConferenceCard from "../components/ConferenceCard";
 import {
   LoadingGrid,

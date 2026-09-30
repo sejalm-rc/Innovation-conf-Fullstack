@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X, Send, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
-import logo from "../assets/img/hlogo.png";
+import logo from "../assets/img/innovation-conference-header-logo_converted.webp";
 
 const navItems = [
   {

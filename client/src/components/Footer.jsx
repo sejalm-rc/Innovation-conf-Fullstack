@@ -10,7 +10,7 @@ import {
   InstagramIcon,
 } from "./SocialIcons";
 
-import logo from "../assets/img/footLogo.png";
+import logo from "../assets/img/innovation-conference-footer-logo_converted.webp";
 
 /* =========================================================
    QUICK LINKS

@@ -23,7 +23,7 @@ import { ErrorState } from "../components/StatusStates";
 import { useFetch } from "../hooks/useFetch";
 import { fetchConferenceByIdentifier, fetchConferences } from "../services/conferenceService";
 import { resolveUploadUrl } from "../services/api";
-import fallbackCover from "../assets/img/j1.png";
+import fallbackCover from "../assets/img/conference-indore-cover.webp";
 
 function DetailsSkeleton() {
   return (

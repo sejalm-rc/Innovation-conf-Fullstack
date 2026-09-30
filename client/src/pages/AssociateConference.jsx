@@ -21,8 +21,8 @@ import {
   Users2,
 } from "lucide-react";
 
-import associateBg from "../assets/img/associateBg.png";
-import ctaImage from "../assets/img/aboutcta.png";
+import associateBg from "../assets/img/innovation-conference-associate-hero.webp";
+import ctaImage from "../assets/img/global-research-collaboration-cta_converted.webp";
 import { submitEvaluation } from "../services/evaluationService";
 import { ApiError } from "../services/api";
 

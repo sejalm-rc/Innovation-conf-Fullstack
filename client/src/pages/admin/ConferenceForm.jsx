@@ -7,7 +7,7 @@ import {
   adminUpdateConference,
 } from "../../services/conferenceService";
 import { resolveUploadUrl, ApiError } from "../../services/api";
-import fallbackCover from "../../assets/img/j1.png";
+import fallbackCover from "../../assets/img/conference-indore-cover.webp";
 
 const emptyForm = {
   title: "",

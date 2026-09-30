@@ -26,10 +26,10 @@ import {
   Users2,
 } from "lucide-react";
 
-import aboutHero from "../assets/img/aboutbg.png";
-import ctaimg from "../assets/img/aboutcta.png";
-import sdgImg from "../assets/img/sd18.png";
-import ctaBg from "../assets/img/cta.png";
+import aboutHero from "../assets/img/innovation-conference-about-us-hero.webp";
+import ctaimg from "../assets/img/global-research-collaboration-cta_converted.webp";
+import sdgImg from "../assets/img/un-sustainable-development-goals-logo.webp";
+import ctaBg from "../assets/img/research-innovation-conference-cta.webp";
 
 const missionItems = [
   {
