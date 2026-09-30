@@ -19,8 +19,7 @@ import {
   Sprout,
   Users,
 } from "lucide-react";
-import homeBg from "../assets/img/home.png";
-import goal from "../assets/img/goal.png";
+import homeBg from "../assets/img/innovation-conference-footer-logo.webp";
 import { fetchUpcomingConferences } from "../services/conferenceService";
 import { resolveUploadUrl } from "../services/api";
 import { useFetch } from "../hooks/useFetch";
