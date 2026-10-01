@@ -272,6 +272,7 @@ module.exports = {
   saveConferenceCover,
   removeConferenceCover,
   removeLocalFile,
+
   CONFERENCE_UPLOAD_DIR,
   EVALUATION_UPLOAD_DIR,
 };
